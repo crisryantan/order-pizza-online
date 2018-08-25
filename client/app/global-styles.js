@@ -6,25 +6,20 @@ injectGlobal`
   body {
     height: 100%;
     width: 100%;
-  }
+    background: #d4d4d4;
+  },
 
   body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Abhaya Libre', sans-serif;
   }
 
   body.fontLoaded {
-    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  }
-
-  #app {
-    background-color: #fafafa;
-    min-height: 100%;
-    min-width: 100%;
+    font-family: 'Abhaya Libre', sans-serif;
   }
 
   p,
   label {
-    font-family: Georgia, Times, 'Times New Roman', serif;
+    font-family: 'Abhaya Libre', sans-serif;
     line-height: 1.5em;
   }
 `;

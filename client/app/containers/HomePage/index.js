@@ -7,6 +7,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { createStructuredSelector } from 'reselect';
+import styled from 'styled-components';
+
 import injectSaga from 'utils/injectSaga';
 import injectReducer from 'utils/injectReducer';
 
@@ -19,6 +21,27 @@ import {
   makeSelectIngredients,
 } from './selectors';
 
+const Wrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  height: 90vh;
+  padding: 20px;
+
+  div {
+    border: 1rem double #1a1a1a;
+    padding: 2rem;
+    position: relative;
+    background: #fff;
+    transition: all .3s;
+    box-shadow: 0 5px 5px rgba(0,0,0,.1);
+    flex: 1 1 256px;
+  }
+
+  *:first-child, *:nth-child(2) {
+    border-right: none;
+  }
+`;
+
 /* eslint-disable react/prefer-stateless-function */
 export class HomePage extends React.PureComponent {
 
@@ -28,9 +51,19 @@ export class HomePage extends React.PureComponent {
 
   render() {
     return (
-      <h1>
-        sup
-      </h1>
+      <div id="main">
+        <Wrapper>
+          <div>
+            <p>Dough Type</p>
+          </div>
+          <div>
+            <p>Ingredients</p>
+          </div>
+          <div>
+            <p>Order Summary</p>
+          </div>
+        </Wrapper>
+      </div>
     );
   }
 }
