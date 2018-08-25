@@ -2,10 +2,10 @@
 
 const Hapi = require('hapi');
 
-const launches = require('./resources/recipes.json');
+const launches = require('./resources/ingredients.json');
 
-const getPizzaRecipesHandler = (req, resp) => {
-  console.log('GET /recipes');
+const getPizzaIngredients = (req, resp) => {
+  console.log('GET /ingredients');
   return resp(launches);
 };
 
@@ -24,8 +24,8 @@ server.connection({
 
 server.route({
   method: 'GET',
-  path: '/recipes', 
-  handler: getPizzaRecipesHandler
+  path: '/ingredients', 
+  handler: getPizzaIngredients
 });
 
 server.start((err) => {
