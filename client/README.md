@@ -11,6 +11,7 @@
 
 - `$ git clone https://github.com/xxryan1234/order-pizza-online.git && cd github` will download the app and cd to the folder once done.
 
+# for both client and server run
 - `yarn install` - to install dependencies.
 - `yarn start` - Runs the app in development mode.
 - `yarn build` - Builds the app for production to the build folder.
