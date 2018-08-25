@@ -1,0 +1,146 @@
+[
+  {
+    "Id": 3,
+    "Code": "C",
+    "Name": "MOZZARELLA CHEESE",
+    "TypeName": "CHEESE"
+  },
+  {
+    "Id": 102,
+    "Code": "Ft",
+    "Name": "FETA CHEESE",
+    "TypeName": "CHEESE"
+  },
+  {
+    "Id": 17,
+    "Code": "R",
+    "Name": "RIPE OLIVE",
+    "TypeName": "VEGETABLE"
+  },
+  {
+    "Id": 19,
+    "Code": "T",
+    "Name": "TOMATO",
+    "TypeName": "VEGETABLE"
+  },
+  {
+    "Id": 85,
+    "Code": "A",
+    "Name": "SMOKED CHICKEN BREAST",
+    "TypeName": "MEAT"
+  },
+  {
+    "Id": 2,
+    "Code": "B",
+    "Name": "GROUND BEEF",
+    "TypeName": "MEAT"
+  },
+  {
+    "Id": 112,
+    "Code": "Br",
+    "Name": "ROASTED BEEF",
+    "TypeName": "MEAT"
+  },
+  {
+    "Id": 99,
+    "Code": "CH",
+    "Name": "CHICKEN HAM",
+    "TypeName": "MEAT"
+  },
+  {
+    "Id": 80,
+    "Code": "Cp",
+    "Name": "PARMESAN CHEESE",
+    "TypeName": "CHEESE"
+  },
+  {
+    "Id": 116,
+    "Code": "Dp",
+    "Name": "DRIED PARSLEY",
+    "TypeName": "VEGETABLE"
+  },
+  {
+    "Id": 7,
+    "Code": "G",
+    "Name": "GREEN PEPPER",
+    "TypeName": "VEGETABLE"
+  },
+  {
+    "Id": 106,
+    "Code": "Kc",
+    "Name": "CRAB MEAT CHUNK",
+    "TypeName": "SEAFOOD"
+  },
+  {
+    "Id": 105,
+    "Code": "Kf",
+    "Name": "CRAB MEAT JUMBO",
+    "TypeName": "SEAFOOD"
+  },
+  {
+    "Id": 43,
+    "Code": "M",
+    "Name": "MUSHROOM",
+    "TypeName": "VEGETABLE"
+  },
+  {
+    "Id": 13,
+    "Code": "N",
+    "Name": "PINEAPPLE",
+    "TypeName": "VEGETABLE"
+  },
+  {
+    "Id": 14,
+    "Code": "O",
+    "Name": "ONIONS",
+    "TypeName": "VEGETABLE"
+  },
+  {
+    "Id": 15,
+    "Code": "P",
+    "Name": "BEEF PEPPERONI",
+    "TypeName": "MEAT"
+  },
+  {
+    "Id": 93,
+    "Code": "RC",
+    "Name": "ROASTED CHICKEN",
+    "TypeName": "MEAT"
+  },
+  {
+    "Id": 83,
+    "Code": "RP",
+    "Name": "RED PEPPER",
+    "TypeName": "VEGETABLE"
+  },
+  {
+    "Id": 18,
+    "Code": "S",
+    "Name": "CABANOSSI",
+    "TypeName": "MEAT"
+  },
+  {
+    "Id": 87,
+    "Code": "Sp",
+    "Name": "SPINACH",
+    "TypeName": "VEGETABLE"
+  },
+  {
+    "Id": 111,
+    "Code": "Tu",
+    "Name": "TUNA CHUNK IN OIL",
+    "TypeName": "SEAFOOD"
+  },
+  {
+    "Id": 91,
+    "Code": "U",
+    "Name": "PRAWN",
+    "TypeName": "SEAFOOD"
+  },
+  {
+    "Id": 59,
+    "Code": "WS",
+    "Name": "CHICKEN SAUSAGE",
+    "TypeName": "MEAT"
+  }
+]
