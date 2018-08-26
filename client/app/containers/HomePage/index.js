@@ -12,6 +12,8 @@ import styled from 'styled-components';
 import injectSaga from 'utils/injectSaga';
 import injectReducer from 'utils/injectReducer';
 import Ingredient from 'components/Ingredient';
+import DoughType from 'components/DoughType';
+import Header from 'components/Header';
 
 import { requestPageData } from './actions';
 import reducer from './reducer';
@@ -22,11 +24,10 @@ import { makeSelectLoading, makeSelectIngredients } from './selectors';
 const MainWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
-  height: 90vh;
+  height: 95vh;
   padding: 20px;
 
-  > div {
-    border: 1rem double #1a1a1a;
+  .direct-child {
     padding: 2rem;
     position: relative;
     background: #fff;
@@ -37,16 +38,18 @@ const MainWrapper = styled.div`
 `;
 
 const DoughWrapper = styled.div`
+  border: 1rem double #1a1a1a;
   border-right: none;
 `;
 
 const MenuWrapper = styled.div`
   overflow-y: scroll;
+  border: 1rem double #1a1a1a;
   border-right: none;
 `;
 
 const SummaryWrapper = styled.div`
-  border-right: none;
+  border: 1rem double #1a1a1a;
 `;
 
 /* eslint-disable react/prefer-stateless-function */
@@ -64,17 +67,32 @@ export class HomePage extends React.PureComponent {
     return (
       <div id="main">
         <MainWrapper>
-          <DoughWrapper>
-            <h5>Pizza University</h5>
+          <DoughWrapper className="direct-child">
+            <Header />
+            <div>
+              <ul>
+                <DoughType
+                  Url="http://www.bayesianstats.com/wp-content/uploads/thick-pizza-dough-dinner-pinterest-thick-crust-pizza.jpg"
+                  Name="Thick"
+                  TypeName="Dough"
+                />
+
+                <DoughType
+                  Url="https://qph.fs.quoracdn.net/main-qimg-77f4a0066abb763b57221734888ad665-c"
+                  Name="Thin"
+                  TypeName="Dough"
+                />
+              </ul>
+            </div>
           </DoughWrapper>
-          <MenuWrapper>
+          <MenuWrapper className="direct-child">
             <ul className="ingredient">
               {this.props.ingredients.map(ingredient => (
-                <Ingredient key={ingredient.Id} details={ingredient} />
+                <Ingredient key={ingredient.Id} {...ingredient} />
               ))}
             </ul>
           </MenuWrapper>
-          <SummaryWrapper>
+          <SummaryWrapper className="direct-child">
             <p>Order Summary</p>
           </SummaryWrapper>
         </MainWrapper>

@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import styled from 'styled-components';
 
-export const IngredientWrapper = styled.li`
+export const DoughWrapper = styled.li`
   border-bottom: 2px solid #000;
   border-top: 1px solid #000;
   padding: 1rem 0;
@@ -9,7 +9,7 @@ export const IngredientWrapper = styled.li`
   clear: both;
   overflow: hidden;
   display: block;
-  font-size: 13px;
+  font-size: 15px;
 
   img {
     float: left;
@@ -18,22 +18,18 @@ export const IngredientWrapper = styled.li`
   }
 `;
 
-class Ingredient extends React.Component {
-  onTabChange = (key, type) => {
-    this.setState({ [type]: key });
-  };
-
+class DoughType extends React.Component {
   render() {
     const { Name, TypeName, Url } = this.props;
     return (
-      <IngredientWrapper>
+      <DoughWrapper>
         <img src={Url} alt={Name} />
         <h4>{Name}</h4>
         <p>Type: {TypeName}</p>
-        <button>Add To Order</button>
-      </IngredientWrapper>
+        <button>Choose Dough</button>
+      </DoughWrapper>
     );
   }
 }
 
-export default Ingredient;
+export default DoughType;
