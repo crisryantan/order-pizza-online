@@ -22,15 +22,25 @@ injectGlobal`
 
   p,
   label {
-    font-family: 'Abhaya Libre', sans-serif;
+    font-family: 'Exo 2', sans-serif;
     line-height: 1.5em;
   }
 
   h1 {
-    font-family: 'blanchcaps_inline', sans-serif;
+    font-family: 'Exo 2', sans-serif;
     text-align: center;
     font-weight: normal;
     margin: 0;
+  }
+
+  h1 {
+    font-size: 3.5rem;
+    line-height: 0.7;
+    display: flex;
+    justify-content: center;
+    font-family: 'Exo 2';
+    color: #e01523;
+    text-transform: uppercase;
   }
 
   h1,
@@ -48,7 +58,7 @@ injectGlobal`
     text-transform: uppercase;
     background: none;
     border: 1px solid #000;
-    font-family: Arial;
+    font-family: 'Exo 2';
     -webkit-transition: all 0.2s;
     transition: all 0.2s;
     position: relative;

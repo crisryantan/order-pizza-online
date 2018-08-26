@@ -12,15 +12,6 @@ const StyledHeader = styled.header`
   text-align: center;
   margin: 30px 0px;
 
-  h1 {
-    font-size: 3.5rem;
-    line-height: 0.7;
-    display: flex;
-    justify-content: center;
-    font-family: fantasy;
-    color: #e01523;
-  }
-
   h1 .mixmatch {
     display: flex;
     font-size: 2rem;
@@ -44,7 +35,7 @@ const StyledHeader = styled.header`
   }
 
   .match {
-    bottom: -2.9rem;
+    bottom: -2.1rem;
     left: -1.4rem;
   }
 `;

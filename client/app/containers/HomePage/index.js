@@ -27,7 +27,7 @@ const MainWrapper = styled.div`
   height: 95vh;
   padding: 20px;
 
-  .direct-child {
+  .child-wrapper {
     padding: 2rem;
     position: relative;
     background: #fff;
@@ -52,6 +52,21 @@ const SummaryWrapper = styled.div`
   border: 1rem double #1a1a1a;
 `;
 
+const doughTypes = [
+  {
+    Url:
+      'http://www.bayesianstats.com/wp-content/uploads/thick-pizza-dough-dinner-pinterest-thick-crust-pizza.jpg',
+    Name: 'Thick',
+    TypeName: 'Dough',
+  },
+  {
+    Url:
+      'https://qph.fs.quoracdn.net/main-qimg-77f4a0066abb763b57221734888ad665-c',
+    Name: 'Thin',
+    TypeName: 'Dough',
+  },
+];
+
 /* eslint-disable react/prefer-stateless-function */
 export class HomePage extends React.PureComponent {
   state = {
@@ -63,37 +78,43 @@ export class HomePage extends React.PureComponent {
     this.props.requestData();
   }
 
+  addToOrder = key => {
+    // 1. take a copy of state
+    const order = { ...this.state.order };
+    // 2. add to the order, or update the number in our order
+    order[key] = order[key] + 1 || 1;
+    // 3. Call setState to update our state object
+    this.setState({ order, price: this.state.price + 0.5 });
+  };
+
   render() {
+    console.log(this.state);
     return (
       <div id="main">
         <MainWrapper>
-          <DoughWrapper className="direct-child">
+          <DoughWrapper className="child-wrapper">
             <Header />
             <div>
               <ul>
-                <DoughType
-                  Url="http://www.bayesianstats.com/wp-content/uploads/thick-pizza-dough-dinner-pinterest-thick-crust-pizza.jpg"
-                  Name="Thick"
-                  TypeName="Dough"
-                />
-
-                <DoughType
-                  Url="https://qph.fs.quoracdn.net/main-qimg-77f4a0066abb763b57221734888ad665-c"
-                  Name="Thin"
-                  TypeName="Dough"
-                />
+                {doughTypes.map(doughType => (
+                  <DoughType key={doughType.Name} {...doughType} />
+                ))}
               </ul>
             </div>
           </DoughWrapper>
-          <MenuWrapper className="direct-child">
+          <MenuWrapper className="child-wrapper">
             <ul className="ingredient">
               {this.props.ingredients.map(ingredient => (
-                <Ingredient key={ingredient.Id} {...ingredient} />
+                <Ingredient
+                  key={ingredient.Id}
+                  addToOrder={this.addToOrder}
+                  {...ingredient}
+                />
               ))}
             </ul>
           </MenuWrapper>
-          <SummaryWrapper className="direct-child">
-            <p>Order Summary</p>
+          <SummaryWrapper className="child-wrapper">
+            <h1>Order Summary</h1>
           </SummaryWrapper>
         </MainWrapper>
       </div>
