@@ -17,12 +17,24 @@ export const IngredientWrapper = styled.li`
   }
 `;
 
+export const HighlightH1 = styled.h1`
+  font-family: 'Exo 2', sans-serif;
+  text-align: center;
+  font-weight: normal;
+  margin: 0;
+  font-size: 3rem;
+  line-height: 0.7;
+  display: flex;
+  justify-content: center;
+  color: #e01523;
+  text-transform: uppercase;
+`;
+
 export const StyledButton = styled.button`
   text-transform: uppercase;
   background: none;
   border: 1px solid #000;
-  font-family: 'Exo 2';
-  -webkit-transition: all 0.2s;
+  font-family: 'Exo 2', sans-serif;
   transition: all 0.2s;
   position: relative;
   z-index: 2;
@@ -37,7 +49,6 @@ export const StyledButton = styled.button`
     height: 0;
     left: 0;
     top: 0;
-    -webkit-transition: all 0.2s;
     transition: all 0.2s;
   }
 

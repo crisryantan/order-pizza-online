@@ -10,7 +10,7 @@ import styled from 'styled-components';
 import { Icon } from 'antd';
 
 import { formatPrice } from 'utils/helpers';
-import { StyledButton } from '../CommonStyled';
+import { StyledButton, HighlightH1 } from '../CommonStyled';
 
 const StyledLi = styled.li`
   border-bottom: 1px solid #000;
@@ -87,7 +87,7 @@ class Order extends React.PureComponent {
 
     return (
       <div>
-        <h1>Order Summary</h1>
+        <HighlightH1>Order Summary</HighlightH1>
         <StyledUl>
           <StyledLi>Dough Type: {dough}</StyledLi>
           {orderIds.map(this.renderOrder)}

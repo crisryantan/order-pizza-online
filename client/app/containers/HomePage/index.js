@@ -16,6 +16,7 @@ import Ingredient from 'components/Ingredient';
 import DoughType from 'components/DoughType';
 import Header from 'components/Header';
 import Order from 'components/Order';
+import { HighlightH1 } from 'components/CommonStyled';
 
 import { requestPageData } from './actions';
 import reducer from './reducer';
@@ -131,7 +132,7 @@ export class HomePage extends React.PureComponent {
             </div>
           </DoughWrapper>
           <MenuWrapper className="child-wrapper">
-            <h1>Ingredients</h1>
+            <HighlightH1>Ingredients</HighlightH1>
             <ul className="ingredient">
               {this.props.ingredients.map(ingredient => (
                 <Ingredient

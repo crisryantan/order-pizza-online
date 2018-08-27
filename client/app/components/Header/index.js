@@ -6,6 +6,7 @@
 
 import React from 'react';
 import styled from 'styled-components';
+import { HighlightH1 } from '../CommonStyled';
 
 const StyledHeader = styled.header`
   text-align: center;
@@ -42,14 +43,14 @@ const StyledHeader = styled.header`
 function Header() {
   return (
     <StyledHeader>
-      <h1>
+      <HighlightH1>
         Pizza
         <span className="mixmatch">
           <span className="mix">Mix</span>
           <span className="match">Match</span>
         </span>
         University
-      </h1>
+      </HighlightH1>
     </StyledHeader>
   );
 }
