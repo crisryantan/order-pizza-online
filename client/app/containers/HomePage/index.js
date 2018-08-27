@@ -8,18 +8,24 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { createStructuredSelector } from 'reselect';
 import styled from 'styled-components';
+import { message } from 'antd';
 
 import injectSaga from 'utils/injectSaga';
 import injectReducer from 'utils/injectReducer';
 import Ingredient from 'components/Ingredient';
 import DoughType from 'components/DoughType';
 import Header from 'components/Header';
+import Order from 'components/Order';
 
 import { requestPageData } from './actions';
 import reducer from './reducer';
 import saga from './saga';
 
-import { makeSelectLoading, makeSelectIngredients } from './selectors';
+import {
+  makeSelectLoading,
+  makeSelectIngredients,
+  makeSelectDoughTypes,
+} from './selectors';
 
 const MainWrapper = styled.div`
   display: flex;
@@ -34,6 +40,7 @@ const MainWrapper = styled.div`
     transition: all 0.3s;
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
     flex: 1 1 360px;
+    overflow-y: scroll;
   }
 `;
 
@@ -43,40 +50,48 @@ const DoughWrapper = styled.div`
 `;
 
 const MenuWrapper = styled.div`
-  overflow-y: scroll;
   border: 1rem double #1a1a1a;
   border-right: none;
+
+  .ingredient {
+    margin-top: 20px;
+  }
 `;
 
 const SummaryWrapper = styled.div`
   border: 1rem double #1a1a1a;
 `;
 
-const doughTypes = [
-  {
-    Url:
-      'http://www.bayesianstats.com/wp-content/uploads/thick-pizza-dough-dinner-pinterest-thick-crust-pizza.jpg',
-    Name: 'Thick',
-    TypeName: 'Dough',
-  },
-  {
-    Url:
-      'https://qph.fs.quoracdn.net/main-qimg-77f4a0066abb763b57221734888ad665-c',
-    Name: 'Thin',
-    TypeName: 'Dough',
-  },
-];
+const defaultState = {
+  order: {},
+  price: 0,
+  dough: 'Thick Crust Pizza',
+};
 
 /* eslint-disable react/prefer-stateless-function */
 export class HomePage extends React.PureComponent {
   state = {
-    order: {},
-    price: 0,
+    ...defaultState,
   };
 
   componentWillMount() {
     this.props.requestData();
   }
+
+  confirmCheckout = () => {
+    if (!Object.keys(this.state.order).length) {
+      return message.error('Please select atleast 1 ingredient for your pizza');
+    }
+
+    this.setState({ ...defaultState });
+    return message.success(
+      'Transaction successfully created, expect your order to arrive in 30min. or get it free!',
+    );
+  };
+
+  setDoughType = dough => {
+    this.setState({ dough });
+  };
 
   addToOrder = key => {
     // 1. take a copy of state
@@ -87,8 +102,17 @@ export class HomePage extends React.PureComponent {
     this.setState({ order, price: this.state.price + 0.5 });
   };
 
+  reducerOrder = key => {
+    const order = { ...this.state.order };
+    if (order[key] < 2) {
+      delete order[key];
+    } else {
+      order[key] -= 1;
+    }
+    this.setState({ order, price: this.state.price - 0.5 });
+  };
+
   render() {
-    console.log(this.state);
     return (
       <div id="main">
         <MainWrapper>
@@ -96,13 +120,18 @@ export class HomePage extends React.PureComponent {
             <Header />
             <div>
               <ul>
-                {doughTypes.map(doughType => (
-                  <DoughType key={doughType.Name} {...doughType} />
+                {this.props.doughTypes.map(doughType => (
+                  <DoughType
+                    key={doughType.Name}
+                    setDoughType={this.setDoughType}
+                    {...doughType}
+                  />
                 ))}
               </ul>
             </div>
           </DoughWrapper>
           <MenuWrapper className="child-wrapper">
+            <h1>Ingredients</h1>
             <ul className="ingredient">
               {this.props.ingredients.map(ingredient => (
                 <Ingredient
@@ -114,7 +143,13 @@ export class HomePage extends React.PureComponent {
             </ul>
           </MenuWrapper>
           <SummaryWrapper className="child-wrapper">
-            <h1>Order Summary</h1>
+            <Order
+              addToOrder={this.addToOrder}
+              reducerOrder={this.reducerOrder}
+              confirmCheckout={this.confirmCheckout}
+              ingredients={this.props.ingredients}
+              {...this.state}
+            />
           </SummaryWrapper>
         </MainWrapper>
       </div>
@@ -125,6 +160,7 @@ export class HomePage extends React.PureComponent {
 HomePage.propTypes = {
   requestData: PropTypes.func,
   ingredients: PropTypes.array,
+  doughTypes: PropTypes.array,
 };
 
 export function mapDispatchToProps(dispatch) {
@@ -136,6 +172,7 @@ export function mapDispatchToProps(dispatch) {
 const mapStateToProps = createStructuredSelector({
   loading: makeSelectLoading(),
   ingredients: makeSelectIngredients(),
+  doughTypes: makeSelectDoughTypes(),
 });
 
 const withConnect = connect(

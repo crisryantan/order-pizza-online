@@ -1,5 +1,6 @@
-import React, { PropTypes } from 'react';
-import { IngredientWrapper } from '../CommonStyled';
+import React from 'react';
+import PropTypes from 'prop-types';
+import { IngredientWrapper, StyledButton } from '../CommonStyled';
 
 function Ingredient({ Name, TypeName, Url, addToOrder }) {
   return (
@@ -7,9 +8,16 @@ function Ingredient({ Name, TypeName, Url, addToOrder }) {
       <img src={Url} alt={Name} />
       <h4>{Name}</h4>
       <p>Type: {TypeName}</p>
-      <button onClick={() => addToOrder(Name)}>Choose Dough</button>
+      <StyledButton onClick={() => addToOrder(Name)}>Add to order</StyledButton>
     </IngredientWrapper>
   );
 }
+
+Ingredient.propTypes = {
+  Name: PropTypes.string,
+  TypeName: PropTypes.string,
+  Url: PropTypes.string,
+  addToOrder: PropTypes.func,
+};
 
 export default Ingredient;

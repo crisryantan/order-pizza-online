@@ -1,0 +1,14 @@
+[
+  {
+    "Url": "http://www.bayesianstats.com/wp-content/uploads/thick-pizza-dough-dinner-pinterest-thick-crust-pizza.jpg",
+    "Name": "Thick Crust Pizza",
+    "description": "Thick and soft pizza dough",
+    "TypeName": "Dough"
+  },
+  {
+    "Url": "https://qph.fs.quoracdn.net/main-qimg-77f4a0066abb763b57221734888ad665-c",
+    "Name": "Thin Crust Pizza",
+    "description": "Thin and crusty pizza dough",
+    "TypeName": "Dough"
+  }
+]

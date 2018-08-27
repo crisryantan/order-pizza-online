@@ -8,7 +8,9 @@ import { requestPageDataSuccess, requestPageDataError } from './actions';
 export function* requestPageData() {
   try {
     const { data: ingredients } = yield call(getRequest, '/ingredients');
-    yield put(requestPageDataSuccess(ingredients || []));
+    const { data: doughTypes } = yield call(getRequest, '/doughTypes');
+
+    yield put(requestPageDataSuccess(ingredients, doughTypes));
   } catch (error) {
     message.error('Something went wrong, please try again.');
     yield put(requestPageDataError(error));

@@ -13,6 +13,7 @@ import {
 
 const initialState = fromJS({
   ingredients: [],
+  doughTypes: [],
   loading: false,
 });
 
@@ -25,6 +26,7 @@ function spaceMissionsReducer(state = initialState, action) {
       return state
         .set('loading', false)
         .set('ingredients', fromJS(action.ingredients))
+        .set('doughTypes', fromJS(action.doughTypes));
 
     case REQUEST_DATA_ERROR:
       return state.set('loading', false);

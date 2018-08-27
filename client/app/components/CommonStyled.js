@@ -16,3 +16,39 @@ export const IngredientWrapper = styled.li`
     margin-right: 1rem;
   }
 `;
+
+export const StyledButton = styled.button`
+  text-transform: uppercase;
+  background: none;
+  border: 1px solid #000;
+  font-family: 'Exo 2';
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  position: relative;
+  z-index: 2;
+
+  :after {
+    content: '';
+    z-index: -1;
+    display: block;
+    background: #000;
+    position: absolute;
+    width: 100%;
+    height: 0;
+    left: 0;
+    top: 0;
+    -webkit-transition: all 0.2s;
+    transition: all 0.2s;
+  }
+
+  :hover,
+  :focus {
+    color: #fff;
+    outline: 0;
+  }
+
+  :hover:after,
+  :focus:after {
+    height: 100%;
+  }
+`;

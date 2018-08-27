@@ -10,10 +10,11 @@ export function requestPageData() {
   };
 }
 
-export function requestPageDataSuccess(ingredients) {
+export function requestPageDataSuccess(ingredients, doughTypes) {
   return {
     type: REQUEST_DATA_SUCCESS,
     ingredients,
+    doughTypes,
   };
 }
 
